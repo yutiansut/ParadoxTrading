@@ -2,7 +2,7 @@ from distutils.core import setup
 
 setup(
     name='ParadoxTrading',
-    version='0.0.2',
+    version='0.0.3',
     author='hantian.pang',
     packages=[
         'ParadoxTrading',
@@ -19,24 +19,23 @@ setup(
         'ParadoxTrading/Indicator/Bar',
         'ParadoxTrading/Indicator/General',
         'ParadoxTrading/Indicator/Stop',
+        'ParadoxTrading/Indicator/TSA',
         'ParadoxTrading/Performance',
         'ParadoxTrading/Utils',
         'ParadoxTrading/Utils/CTP',
     ],
     install_requires=[
         'numpy', 'tabulate',
-        'h5py',
-        'psycopg2',
-        'pymongo',
+        'psycopg2', 'pymongo',
         'PyQt5', 'PyQtChart',
-        'arrow',
-        'pandas',
+        'arrow', 'pandas',
         'diskcache',
         'schedule',
-        'requests', 'beautifulsoup4', 'urllib3', 'lxml', 'arch'
-        # 'PyCTP'
+        'requests', 'beautifulsoup4', 'urllib3', 'lxml',
+        'arch'
     ],
-    dependency_links=[
-        # 'https://github.com/ppaanngggg/PyCTP/master#egg=PyCTP-0.1'
-    ]
+    extras_require={
+        'CTP': ['PyCTP'],
+        'TSA': ['TorchTSA'],
+    },
 )
